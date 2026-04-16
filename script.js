@@ -1,3 +1,6 @@
+/*The loop will continue until the user guesses the correct number.
+Inside the loop, the user is prompted to enter a guess, and the number of attempts is incremented.
+The program checks if the guess is too high, too low, or correct, and provides feedback accordingly.*/
 function loadGuessNumber() {
 
     // Generate a random number between 1 and 10
@@ -33,7 +36,7 @@ function loadGuessNumber() {
 document.addEventListener('DOMContentLoaded', function() {
 
     // LOAD guesss number
-    loadGuessNumber();
+    //loadGuessNumber();
 
     let calButton = document.getElementById('calculate');
 
