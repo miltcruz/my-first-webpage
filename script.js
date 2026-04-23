@@ -30,11 +30,35 @@ function loadGuessNumber() {
   }
 }
 
+const calculateTip = (billAmount, tipPercentage) => {
+  console.log("billAmount", typeof billAmount);
+  console.log("tipPercentage", typeof tipPercentage);
+  if (typeof billAmount !== "number" || typeof tipPercentage !== "number" || 
+      billAmount < 0 || tipPercentage < 0) {
+      return "Invalid input. Please enter numbers for bill amount and tip percentage.";
+    }
+
+    return (billAmount + (billAmount * (tipPercentage / 100))).toFixed(2);  // Display the total amount with 2 decimal places
+};
+
 document.addEventListener("DOMContentLoaded", function () {
   // LOAD guesss number
   //loadGuessNumber();
 
+  let results = document.getElementById("result");
   let calButton = document.getElementById("calculate");
+  let tipForm = document.getElementById("tip-form");
+
+  if (tipForm) {
+    tipForm.addEventListener("submit", (event) => {
+      // to prevent the form from submitting and refreshing the page
+      event.preventDefault();
+    
+      let billAmount = Number(document.getElementById("billAmount").value);
+      let tipPercentage = Number(document.getElementById("tipPercentage").value);
+      results.innerHTML = calculateTip(billAmount, tipPercentage); 
+    });
+  }
 
   if (calButton) {
     calButton.addEventListener("click", function () {
@@ -46,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let num2 = Number(document.getElementById("num2").value);
       let sum = num1 + num2;
 
-      let results = document.getElementById("result");
+      
       console.log("results", results);
       results.innerHTML = "Sum: " + sum;
 

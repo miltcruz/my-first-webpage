@@ -1,4 +1,4 @@
-/**************General Styles********************/
+/************** General Styles ********************/
 body {
   font-family: "Noto Sans", sans-serif;
   font-optical-sizing: auto;
@@ -7,7 +7,7 @@ body {
   font-variation-settings: "wdth" 100;
 }
 
-/**************Text Styles********************/
+/************** Text Styles ********************/
 h1,
 h2,
 h3,
@@ -43,11 +43,11 @@ h5 {
 h6 {
   font-weight: 100;
 }
-/**************Link Styles********************/
+/************** Link Styles ********************/
 
-/**************Image Styles********************/
+/************** Image Styles ********************/
 
-/**************Utility Classes********************/
+/************** Utility Classes ********************/
 .noto-sans-400 {
   font-family: "Noto Sans", sans-serif;
   font-optical-sizing: auto;
