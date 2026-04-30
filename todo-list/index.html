@@ -1,11 +1,18 @@
 <!doctype html>
 <html>
   <head>
-    <title>About Me</title>
+    <meta charset="utf-8" />
+    <title>Todo List</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital@0;1&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
     </style>
     <link rel="stylesheet" href="../styles.css" />
+    <style>
+        .completed {
+          text-decoration: line-through;
+          color: gray;
+        }
+    </style>
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -23,7 +30,9 @@
 
     <main>
       <h1>Todo List</h1>
-
+      <input type="text" id="todo-item" placeholder="Enter a new todo item" />
+      <button id="add-btn">Add</button>
+      <div id="todo-container"></div>
     </main>
 
     <footer>
