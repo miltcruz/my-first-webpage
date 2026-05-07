@@ -45,6 +45,16 @@ document.addEventListener("DOMContentLoaded", function () {
   // LOAD guesss number
   //loadGuessNumber();
 
+  // Display nav in mobile view
+  const burger = document.querySelector(".burger");
+
+  if (burger) {
+    burger.addEventListener("click", function () {
+      document.querySelector("nav").classList.toggle("open");
+    });
+  }
+
+
   let results = document.getElementById("result");
   let calButton = document.getElementById("calculate");
   let tipForm = document.getElementById("tip-form");
