@@ -52,6 +52,12 @@ nav ul li a {
   font-weight: bold;
 }
 
+nav ul li a:hover {
+  background-color: white;
+  color: black;
+}
+
+
 main {
   max-width: 1200px;
   margin: 0 auto;
@@ -168,6 +174,12 @@ h6 {
     background-color: blue;
   }
 
+  nav.open ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: end;
+  }
+
   #project-section-4 {
     display: block;
   }
@@ -182,6 +194,17 @@ h6 {
 @media (min-width: 1025px) and (max-width: 1280px) {
   body {
     background-color: green;
+  }
+
+  .burger {
+    display: none;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
   }
 
   #project-section-4,
@@ -199,6 +222,17 @@ h6 {
 @media (min-width: 1281px) {
   body {
     background-color: red;
+  }
+
+  .burger {
+    display: none;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 2rem;
   }
 
   #project-section-4,
