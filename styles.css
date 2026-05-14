@@ -8,6 +8,43 @@ body {
   font-size: 1rem;
 }
 
+/************** Text Styles ********************/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+h3 {
+  font-weight: 400;
+}
+
+h4 {
+  font-weight: 300;
+}
+
+h5 {
+  font-weight: 200;
+}
+
+h6 {
+  font-weight: 100;
+}
+
 header {
   background-color: gray;
   padding: 1rem 1.5rem;
@@ -57,12 +94,10 @@ nav ul li a:hover {
   color: black;
 }
 
-
 main {
   max-width: 1200px;
   margin: 0 auto;
 }
-
 
 .container {
   display: flex;
@@ -76,48 +111,46 @@ main {
   box-sizing: border-box;
 }
 
+/* Footer Styles */
+.site-footer {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem 1.5rem;
+}
+
+.footer-section h4 {
+    font-weight: 500;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-section a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
 /************** Mobile Styles ********************/
 #project-section-4,
 #project-section-5 {
   display: none;
 }
 
-/************** Text Styles ********************/
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
-}
 
-h1 {
-  font-weight: 700;
-}
-
-h2 {
-  font-weight: 500;
-}
-
-h3 {
-  font-weight: 400;
-}
-
-h4 {
-  font-weight: 300;
-}
-
-h5 {
-  font-weight: 200;
-}
-
-h6 {
-  font-weight: 100;
-}
 /************** Link Styles ********************/
 
 /************** Image Styles ********************/
@@ -188,6 +221,15 @@ h6 {
     width: 48%;
     padding: 1rem;
   }
+
+  .site-footer {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .footer-section {
+    width: calc(50% - 0.75rem);
+  }
 }
 
 /* Media Query for Laptops and Desktops */
@@ -216,6 +258,14 @@ h6 {
     width: 30%;
     padding: 1rem;
   }
+
+  .site-footer {
+    flex-direction: row;
+  }
+  
+  .footer-section {
+    flex: 1;
+  }
 }
 
 /* Media Query for Large screens */
@@ -243,5 +293,13 @@ h6 {
   .container section {
     width: 30%;
     padding: 1rem;
+  }
+
+  .site-footer {
+    flex-direction: row;
+  }
+
+  .footer-section {
+    flex: 1;
   }
 }
