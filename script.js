@@ -42,6 +42,32 @@ const calculateTip = (billAmount, tipPercentage) => {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
+
+  /*Contact Form*/
+  const contactForm = document.getElementById("contact-form");
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent the form from submitting
+      const name = document.getElementById("name");
+      const email = document.getElementById("email");
+      const message = document.getElementById("message");
+
+      if ((name.required && name.value.trim() !== "") && 
+      (email.required && email.value.trim() !== "") && 
+      (message.required && message.value.trim() !== "")) {
+
+        console.log("Name:", name.value);
+        console.log("Email:", email.value);
+        console.log("Message:", message.value);
+      }
+      else {
+        alert("Please fill in all required fields.");
+      }
+    });
+  }
+
+
+
   // LOAD guesss number
   //loadGuessNumber();
 
