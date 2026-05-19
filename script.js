@@ -115,6 +115,12 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
           // open the user's default email client with the pre-filled email
           window.location.href = mailtoLink;
+
+          //clear the form fields after submission
+          name.value = "";
+          email.value = "";
+          message.value = "";
+          
         } catch (error) {
           console.error("Error opening email client:", error);
         }
