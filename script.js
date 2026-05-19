@@ -41,6 +41,20 @@ const calculateTip = (billAmount, tipPercentage) => {
     return (billAmount + (billAmount * (tipPercentage / 100))).toFixed(2);  // Display the total amount with 2 decimal places
 };
 
+
+/*
+function checkRequired(element) {
+  return element.required && element.value.trim() !== "";
+}*/
+const checkRequired = element => element?.required && element?.value.trim() !== "";
+
+const showError = (errorElementId, message) => {
+  const errorElement = document.getElementById(errorElementId);
+  if (errorElement) {
+    errorElement.textContent = message;
+  }
+};
+
 document.addEventListener("DOMContentLoaded", function () {
 
   /*Contact Form*/
@@ -52,16 +66,58 @@ document.addEventListener("DOMContentLoaded", function () {
       const email = document.getElementById("email");
       const message = document.getElementById("message");
 
-      if ((name.required && name.value.trim() !== "") && 
-      (email.required && email.value.trim() !== "") && 
-      (message.required && message.value.trim() !== "")) {
+      const nameValue = name.value.trim();
+      const emailValue = email.value.trim();
+      const messageValue = message.value.trim();
 
-        console.log("Name:", name.value);
-        console.log("Email:", email.value);
-        console.log("Message:", message.value);
+      let isValid = true;
+
+      if (!checkRequired(name)) {
+        showError("name-error", "Name is required.");
+        isValid = false;
       }
-      else {
-        alert("Please fill in all required fields.");
+
+
+      if (!checkRequired(message)) {
+        showError("message-error", "Message is required.");
+        isValid = false;
+      }
+
+      if (!checkRequired(email)) {
+        showError("email-error", "Email is required.");
+        isValid = false;
+      } else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(emailValue)) {
+        showError("email-error", "Please enter a valid email address.");
+        isValid = false;
+      }
+
+      if (isValid) {
+        // Clear error messages
+        showError("name-error", "");
+        showError("email-error", "");
+        showError("message-error", "");
+
+
+        const subject = encodeURIComponent(`Contact Form Submission from ${nameValue}`);
+
+        const bodyLines = [
+          `Name: ${nameValue}`,
+          `Email: ${emailValue}`,
+          "",
+          `Message: ${messageValue}`
+        ];
+
+        const body = encodeURIComponent(bodyLines.join("\r\n"));
+        const recipientEmail = "your@email.com";
+        const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
+
+
+        try {
+          // open the user's default email client with the pre-filled email
+          window.location.href = mailtoLink;
+        } catch (error) {
+          console.error("Error opening email client:", error);
+        }
       }
     });
   }
